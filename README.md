@@ -1,6 +1,6 @@
-# React - quick map method exercise
+# React - map method exercise
 
-# 🔗 [Live Preview]()
+# 🔗 [Live Preview](https://66827a99c986a500986950c4--fabulous-macaron-b8a618.netlify.app/)
 
 ![Design preview](./public/preview.png)
 
