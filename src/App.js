@@ -1,7 +1,8 @@
+import { skillsData } from "./skillsData";
+
 function App() {
   return (
     <div className="card">
-      <Avatar />
       <div className="data">
         <Intro />
         <SkillList />
@@ -10,13 +11,10 @@ function App() {
   );
 }
 
-function Avatar() {
-  return <img className="avatar" src="profileImg.jpg" alt="my profile" />;
-}
-
 function Intro() {
   return (
     <div>
+      <img className="avatar" src="profileImg.jpg" alt="my profile" />
       <h1>Predrag Jandric</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam
@@ -29,23 +27,22 @@ function Intro() {
 
 function SkillList() {
   return (
-    <div className="skill-list">
-      <Skill name="HTML+CSS" emoji="💪" color="lightblue"/>
-      <Skill name="JavaScript" emoji="💪" color="yellow"/>
-      <Skill name="Web Design" emoji="💪" color="lightgreen"/>
-      <Skill name="Git and Github" emoji="👍" color="pink"/>
-      <Skill name="React" emoji="💪" color="cyan"/>
-      <Skill name="Svelte" emoji="😲" color="red"/>
-    </div>
-  );
-}
-
-function Skill(props) {
-  return (
-    <div className="skill" style={{backgroundColor: props.color}}>
-      <span>{props.name}</span>
-      <span>{props.emoji}</span>
-    </div>
+    <ul className="skill-list">
+      {skillsData.map((skill) => (
+        <li className="skill" style={{ backgroundColor: skill.color }}>
+          <span>{skill.name}</span>
+          <span>
+            {skill.level === "beginner"
+              ? "💪"
+              : skill.level === "intermediate"
+              ? "👍"
+              : skill.level === "advanced"
+              ? "😲"
+              : null}
+          </span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
